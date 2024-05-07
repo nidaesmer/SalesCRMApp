@@ -14,7 +14,12 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("SalesCRMCnn")));
 //buraya kadar
 
 //identity kutuphanesıyle geldı
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+// .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders() //yönetmek için
+    .AddRoles<IdentityRole>() //kimlik rolunu enjekte etmek için
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 var app = builder.Build();

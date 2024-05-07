@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole> // gorunumun koleksiyon olarak ıdentıtyrole modelini kullanacagını belırtıyo
+
+
+@{
+    ViewData["Title"] = "Application Roles"; //görünümün başlığı
+}
+
+<h1>View Roles</h1>
+<p> 
+    <a asp-action="Create">Create Role</a> <!--yeni rol olusutrmak ıcın create metodunu cagırır-->
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model=>model.Id)</th> <!--baslıga ıd ekler-->
+            <th>@Html.DisplayNameFor(model=>model.Name)</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem=>item.Id)</td> <!--gövdeye ıd ekler-->
+                <td>@Html.DisplayFor(modelItem=>item.Name)</td>
+            </tr>
+        }
+    </tbody>
+</table>

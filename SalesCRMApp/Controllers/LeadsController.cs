@@ -8,7 +8,7 @@ using SalesCRMApp.Models;
 
 namespace SalesCRMApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Sales")]
     
     //controllerin veri tabanına erişimini sağlar, itekleri alır işler ve sonucları olusturur
     public class LeadsController : Controller

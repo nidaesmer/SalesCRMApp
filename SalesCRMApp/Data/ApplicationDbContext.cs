@@ -11,5 +11,7 @@ namespace SalesCRMApp.Data
         }
         public DbSet<SalesLeadEntity>SalesLead { get; set; }
         //salesLead tablo adıdır
+
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
     }
 }
